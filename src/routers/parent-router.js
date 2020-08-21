@@ -122,12 +122,12 @@ router.post('/addcourse/parents/students',async(req,res) =>{
     }
 });
 
+/**Update Parent */
 router.patch('/parents',async (req,res) =>{
     const updates = Object.keys(req.body.data);
     const email = req.body.email;
     const allowedUpdates = ['name','relationship','occupation','prefix','active','contacts'];
     const isValidOperation = updates.every((update)=>allowedUpdates.includes(update));
-   // console.log(isValidOperation,updates,allowedUpdates);
     if(!isValidOperation){
         return res.status(400).send({"error":"Invalid update"});
     }
@@ -141,6 +141,6 @@ router.patch('/parents',async (req,res) =>{
    }catch(e){
        res.status(400).send(e);
    }
-})
+});
 
 module.exports = router;

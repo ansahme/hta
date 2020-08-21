@@ -5,7 +5,7 @@ const Tutor = require('../models/tutor');
 const Course = require('../models/course');
 const Days = require('../models/days');
 
-const Schedule = new mongoose.Schema({
+const Schedule = mongoose.model("Scheudle",{
     studentIds:[String],
     tutorId:{
         type:String
@@ -16,10 +16,14 @@ const Schedule = new mongoose.Schema({
     days:{
         type:[Days]
     },
-    startTime:{
-        type:String
+    parentAck:{
+        type:Boolean
     },
-    durationInHours:{
-        type:Number
+    tutorAck:{ type:Boolean},
+    modifiedBy:{
+        type:String,
+        required:true,
+        enum:['ADM','PARENT','TUTOR']
     }
 });
+module.exports = Schedule;

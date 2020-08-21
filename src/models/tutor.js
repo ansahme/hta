@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-const validator = require('../models/schedule')
+const Task = require('../models/task');
 
-const Tutor = new mongoose.Schema({
+const Tutor =  mongoose.model("Tutor",{
     name:{
         type:String,
         required:true,
@@ -11,5 +11,7 @@ const Tutor = new mongoose.Schema({
     },
     subjectAreas:[{ type:String}],
     scheduleIds:[{stype:String}],
-    preferredGrades:[{type:String}]
+    grades:[{type:String}],
+    tasks:[Task]
 })
+module.exports = Tutor;

@@ -28,6 +28,7 @@ const Student = new mongoose.Schema({
     },
     coursesEnrolled:{
         type:[]
-    }
+    },
+    scheduleIds:[{type:String}]
 });
 module.exports = Student;

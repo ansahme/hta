@@ -3,6 +3,7 @@ const validator = require('validator');
 const address = require('../models/address');
 const contact = require('../models/contact');
 const student = require('../models/student');
+const Task = require('../models/task');
 
 const Parent =  mongoose.model('Parent',{
     name:{
@@ -38,7 +39,8 @@ const Parent =  mongoose.model('Parent',{
                 throw new Error("Email is not value");
             }
         }
-    }
+    },
+    task:[Task]
 });
 
 module.exports=Parent;

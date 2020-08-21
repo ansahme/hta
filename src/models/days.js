@@ -2,16 +2,21 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 
 const Days = new mongoose.Schema({
-    name:{
+    day:{
         type:String,
-        enum:['Sunday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+        enum:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
     },
     dayNumber:{
         type:Number,
         enum:[1,2,3,4,5,6,7]
     },
-    isSelected:{
-        type:Boolean
+    startTime:{
+        type:String,
+        required:true
+    },
+	durationInHours:{
+        type:Number,
+        required:true
     }
 });
 module.exports = Days;
